@@ -8,7 +8,13 @@ namespace movieapi.Interfaces
 {
     public interface IMovieRepo
     {
+        bool SaveChanges();
+
         IEnumerable<Movie> GetAllMovies();
         Movie GetMovieById(int id);
+        void AddMovie(Movie movie);
+        void UpdateMovie(Movie movie);
+        void RemoveMovie(Movie movie);
+
     }
 }
