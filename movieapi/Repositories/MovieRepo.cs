@@ -26,6 +26,17 @@ namespace movieapi.Repositories
             _db.Movies.Add(movie);
         }
 
+        public void DeleteMovie(Movie movie)
+        {
+            if (movie == null)
+            {
+                throw new ArgumentNullException(nameof(movie));
+            }
+
+            _db.Movies.Remove(movie);
+            _db.SaveChanges();
+        }
+
         public IEnumerable<Movie> GetAllMovies()
         {
             var movies = _db.Movies.ToList();
@@ -38,12 +49,6 @@ namespace movieapi.Repositories
             var movie = _db.Movies.Find(id);
 
             return movie;
-        }
-
-        public void RemoveMovie(Movie movie)
-        {
-            _db.Remove(movie);
-            _db.SaveChanges();
         }
 
         public bool SaveChanges()

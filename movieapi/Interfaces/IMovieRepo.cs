@@ -14,7 +14,6 @@ namespace movieapi.Interfaces
         Movie GetMovieById(int id);
         void AddMovie(Movie movie);
         void UpdateMovie(Movie movie);
-        void RemoveMovie(Movie movie);
-
+        void DeleteMovie(Movie movie);
     }
 }

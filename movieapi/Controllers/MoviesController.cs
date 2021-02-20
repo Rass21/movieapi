@@ -64,6 +64,7 @@ namespace movieapi.Controllers
             return CreatedAtRoute(nameof(GetMovieById), new { Id = movieReadDTO.Id }, movieReadDTO);
         }
 
+        //PUT api/movies/id
         [HttpPut("{id}")]
         public ActionResult UpdateMovie(int id, MovieUpdateDTO movieUpdateDTO)
         {
@@ -106,6 +107,21 @@ namespace movieapi.Controllers
 
             _repo.UpdateMovie(movieFromRepo);
 
+            _repo.SaveChanges();
+
+            return NoContent();
+        }
+
+        //DELETE api/movies/id
+        [HttpDelete("{id}")]
+        public ActionResult DeleteMovie(int id)
+        {
+            var movieToDelete = _repo.GetMovieById(id);
+            if(movieToDelete == null)
+            {
+                return NotFound();
+            }
+            _repo.DeleteMovie(movieToDelete);
             _repo.SaveChanges();
 
             return NoContent();
