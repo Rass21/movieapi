@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,5 +24,9 @@ namespace movieapi.Models
 
 
         public int Runtime { get; set; }
+        
+        //[ForeignKey("Director")]
+        //public int DirectorId { get; set; }
+        //public Director Director { get; set; }
     }
 }

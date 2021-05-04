@@ -11,8 +11,8 @@ using Microsoft.AspNetCore.JsonPatch;
 
 namespace movieapi.Controllers
 {
-    [Route("api/movies")]
-    [ApiController]
+    [ApiController, Route("api/[controller]")]
+    [Consumes("application/json")]
     public class MoviesController : ControllerBase
     {
         private readonly IMovieRepo _repo;
