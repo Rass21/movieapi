@@ -1,1 +1,1 @@
-Movie REST API .NET Core
+Movie REST API .NET Core with Swagger docs
